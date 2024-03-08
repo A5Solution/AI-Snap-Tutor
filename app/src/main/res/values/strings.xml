@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">AISnapTutor</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="txtContain">This action may contain Ads</string>
+    <string name="txtRemoveAd">Remove Ad</string>
+    <string name="txtAppLanguage">App Language</string>
+    <string name="txtShareApp">Share App</string>
+    <string name="txtPrivacyPolicy">Privacy Policy</string>
+    <string name="txtRateApp">Rate App</string>
+    <string name="txtMoreApp">More App</string>
+    <string name="btn_save">Save</string>
+    <string name="txtForward">Forward</string>
+    <string name="txtCopy">Copy Text</string>
+    <string name="txtOpenInDefault">Open in default browser</string>
+    <string name="txtShare">Share</string>
+    <string name="txtSave">Save</string>
+    <string name="txtCancel">Cancel</string>
+    <string name="txtGallery">Gallery</string>
+    <string name="txtFlash">Flash</string>
+    <string name="txtDone">Done</string>
+    <string name="txtCropRotate"><![CDATA[Crop & Rotate]]></string>
+</resources>

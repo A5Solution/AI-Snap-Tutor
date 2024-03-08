@@ -1,0 +1,16 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.AISnapTutor" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your light theme here. -->
+        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+    </style>
+
+    <style name="Theme.AISnapTutor" parent="Base.Theme.AISnapTutor" />
+
+    <style name="AppTheme.NavigationViewStyle" parent="Widget.Design.NavigationView">
+        <!-- Set text color to white -->
+        <item name="android:textColor">@android:color/white</item>
+        <!-- Set icon tint color to default -->
+        <item name="iconTint">@null</item>
+    </style>
+</resources>

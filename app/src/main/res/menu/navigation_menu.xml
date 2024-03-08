@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="HardcodedText">
+
+    <item
+        android:id="@+id/nav_remove_ad"
+        android:icon="@drawable/icon_remove_ad"
+        android:title="@string/txtRemoveAd"
+        />
+
+<!--    <item-->
+<!--        android:id="@+id/nav_language"-->
+<!--        android:icon="@drawable/icon_language"-->
+<!--        android:title="@string/txtAppLanguage" />-->
+
+    <item
+        android:id="@+id/nav_share"
+        android:icon="@drawable/icon_share"
+        android:title="@string/txtShareApp" />
+
+    <item
+        android:id="@+id/nav_privacy"
+        android:icon="@drawable/icon_privacy"
+        android:title="@string/txtPrivacyPolicy" />
+
+    <item
+        android:id="@+id/nav_rate"
+        android:icon="@drawable/icon_rate"
+        android:title="@string/txtRateApp" />
+    <item
+        android:id="@+id/nav_more"
+        android:icon="@drawable/icon_more"
+        android:title="@string/txtMoreApp" />
+</menu>
