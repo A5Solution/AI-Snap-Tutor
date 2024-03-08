@@ -225,7 +225,7 @@ class HomeFragment : Fragment(), OnSaveClick {
 
         val request: Request = Request.Builder()
             .url("https://api.openai.com/v1/chat/completions")
-            .header("Authorization", "Bearer ")
+            .header("Authorization", "Bearer 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")
             .post(body)
             .build()
         client.newCall(request).enqueue(object : Callback {
