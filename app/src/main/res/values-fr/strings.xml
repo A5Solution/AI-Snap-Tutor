@@ -1,0 +1,32 @@
+<resources>
+    <string name="app_name">AISnapTutor</string>
+    <string name="hello_blank_fragment">Bonjour fragment vierge</string>
+    <string name="txtContain">Cette action peut contenir des annonces</string>
+    <string name="txtRemoveAd">Supprimer la publicité</string>
+    <string name="txtAppLanguage">Langue de l\'application</string>
+    <string name="txtShareApp">Partager l\'application</string>
+    <string name="txtPrivacyPolicy">Politique de confidentialité</string>
+    <string name="txtRateApp">Noter l\'application</string>
+    <string name="txtMoreApp">Plus d\'applications</string>
+    <string name="btn_save">Enregistrer</string>
+    <string name="txtForward">Transférer</string>
+    <string name="txtCopy">Copier le texte</string>
+    <string name="txtOpenInDefault">Ouvrir dans le navigateur par défaut</string>
+    <string name="txtShare">Partager</string>
+    <string name="txtSave">Enregistrer</string>
+    <string name="txtCancel">Annuler</string>
+    <string name="txtGallery">Galerie</string>
+    <string name="txtFlash">Flash</string>
+    <string name="txtDone">Terminé</string>
+    <string name="txtCropRotate"><![CDATA[Recadrer et faire pivoter]]></string>
+    <string name="txtCollection">Collection</string>
+    <string name="txtSelectLang">Sélectionner la langue</string>
+    <string name="txtWatchAd">Regarder la publicité</string>
+    <string name="txtWatchAd1">Vous devez regarder les annonces de récompense pour voir le résultat.</string>
+    <string name="spanish">Espagnol</string>
+    <string name="txtAsk">Posez-moi une question…</string>
+    <string name="txtCrop">Recadrer</string>
+    <string name="txtRotate">Faire pivoter</string>
+    <string name="txtExitApp">Quitter l\'application</string>
+    <string name="txtAreSure">Êtes-vous sûr de vouloir quitter ?</string>
+</resources>

@@ -1,0 +1,32 @@
+<resources>
+    <string name="app_name">AISnapTutor</string>
+    <string name="hello_blank_fragment">Hola fragmento en blanco</string>
+    <string name="txtContain">Esta acción puede contener anuncios</string>
+    <string name="txtRemoveAd">Quitar anuncio</string>
+    <string name="txtAppLanguage">Idioma de la aplicación</string>
+    <string name="txtShareApp">Compartir aplicación</string>
+    <string name="txtPrivacyPolicy">Política de privacidad</string>
+    <string name="txtRateApp">Calificar aplicación</string>
+    <string name="txtMoreApp">Más aplicaciones</string>
+    <string name="btn_save">Guardar</string>
+    <string name="txtForward">Enviar</string>
+    <string name="txtCopy">Copiar texto</string>
+    <string name="txtOpenInDefault">Abrir en el navegador predeterminado</string>
+    <string name="txtShare">Compartir</string>
+    <string name="txtSave">Guardar</string>
+    <string name="txtCancel">Cancelar</string>
+    <string name="txtGallery">Galería</string>
+    <string name="txtFlash">Flash</string>
+    <string name="txtDone">Listo</string>
+    <string name="txtCropRotate"><![CDATA[Recortar y Rotar]]></string>
+    <string name="txtCollection">Colección</string>
+    <string name="txtSelectLang">Seleccionar idioma</string>
+    <string name="txtWatchAd">Ver anuncio</string>
+    <string name="txtWatchAd1">Tienes que ver los anuncios de recompensa para ver el resultado.</string>
+    <string name="spanish">Español</string>
+    <string name="txtAsk">Pregúntame cualquier cosa…</string>
+    <string name="txtCrop">Recortar</string>
+    <string name="txtRotate">Rotar</string>
+    <string name="txtExitApp">Salir de la aplicación</string>
+    <string name="txtAreSure">¿Estás seguro de que quieres salir?</string>
+</resources>

@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/appColor"
-    tools:context=".NavigationFragment">
+    android:background="@drawable/bg_drawer"
+    tools:context=".fragments.NavigationFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/topBarHome"
@@ -22,12 +22,12 @@
             android:id="@+id/btnBack"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="5dp"
-            android:src="@drawable/icon_back"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
             android:visibility="visible"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/icon_cross" />
 
         <ImageView
             android:id="@+id/btnAppIcon"
@@ -80,7 +80,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
-            android:fontFamily="@font/poppins_semibold"
+            android:fontFamily="@font/inter_semibold"
             android:text="@string/txtRemoveAd"
             android:textColor="#CC2578"
             android:textSize="18sp"
@@ -115,7 +115,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
-            android:fontFamily="@font/poppins_semibold"
+            android:fontFamily="@font/inter_semibold"
             android:text="@string/txtAppLanguage"
             android:textColor="@color/white"
             android:textSize="18sp"
@@ -150,7 +150,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
-            android:fontFamily="@font/poppins_semibold"
+            android:fontFamily="@font/inter_semibold"
             android:text="@string/txtShareApp"
             android:textColor="@color/white"
             android:textSize="18sp"
@@ -185,7 +185,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
-            android:fontFamily="@font/poppins_semibold"
+            android:fontFamily="@font/inter_semibold"
             android:text="@string/txtPrivacyPolicy"
             android:textColor="@color/white"
             android:textSize="18sp"
@@ -220,7 +220,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
-            android:fontFamily="@font/poppins_semibold"
+            android:fontFamily="@font/inter_semibold"
             android:text="@string/txtRateApp"
             android:textColor="@color/white"
             android:textSize="18sp"
@@ -255,7 +255,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
-            android:fontFamily="@font/poppins_semibold"
+            android:fontFamily="@font/inter_semibold"
             android:text="@string/txtMoreApp"
             android:textColor="@color/white"
             android:textSize="18sp"

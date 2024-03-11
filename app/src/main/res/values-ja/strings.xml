@@ -1,0 +1,32 @@
+<resources>
+    <string name="app_name">AISnapTutor</string>
+    <string name="hello_blank_fragment">こんにちは、ブランクフラグメント</string>
+    <string name="txtContain">この操作には広告が含まれる場合があります</string>
+    <string name="txtRemoveAd">広告を削除</string>
+    <string name="txtAppLanguage">アプリの言語</string>
+    <string name="txtShareApp">アプリの共有</string>
+    <string name="txtPrivacyPolicy">プライバシーポリシー</string>
+    <string name="txtRateApp">アプリを評価</string>
+    <string name="txtMoreApp">その他のアプリ</string>
+    <string name="btn_save">保存</string>
+    <string name="txtForward">転送</string>
+    <string name="txtCopy">テキストをコピー</string>
+    <string name="txtOpenInDefault">デフォルトのブラウザで開く</string>
+    <string name="txtShare">共有</string>
+    <string name="txtSave">保存</string>
+    <string name="txtCancel">キャンセル</string>
+    <string name="txtGallery">ギャラリー</string>
+    <string name="txtFlash">フラッシュ</string>
+    <string name="txtDone">完了</string>
+    <string name="txtCropRotate"><![CDATA[切り抜き＆回転]]></string>
+    <string name="txtCollection">コレクション</string>
+    <string name="txtSelectLang">言語を選択</string>
+    <string name="txtWatchAd">広告を見る</string>
+    <string name="txtWatchAd1">結果を見るにはリワード広告を視聴する必要があります。</string>
+    <string name="spanish">スペイン語</string>
+    <string name="txtAsk">何でも聞いてください…</string>
+    <string name="txtCrop">トリミング</string>
+    <string name="txtRotate">回転</string>
+    <string name="txtExitApp">アプリを終了</string>
+    <string name="txtAreSure">本当に終了しますか？</string>
+</resources>

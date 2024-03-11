@@ -10,7 +10,6 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Bundle
-import android.os.Handler
 import android.provider.MediaStore
 import android.text.Editable
 import android.text.TextWatcher
@@ -19,21 +18,31 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.aisnaptutor.Message
-import com.example.aisnaptutor.MessageAdapter
-import com.example.aisnaptutor.OnSaveClick
+import com.example.aisnaptutor.AppDatabase
+import com.example.aisnaptutor.datamodels.Message
+import com.example.aisnaptutor.adapters.MessageAdapter
+import com.example.aisnaptutor.interfaces.OnSaveClick
 import com.example.aisnaptutor.R
+import com.example.aisnaptutor.activities.SplashActivity
 import com.example.aisnaptutor.databinding.BottomSheetLayoutBinding
 import com.example.aisnaptutor.databinding.FragmentHomeBinding
+import com.example.aisnaptutor.databinding.WatchAdDialogBinding
+import com.example.aisnaptutor.datamodels.ChatMessage
+import com.example.aisnaptutor.interfaces.ChatMessageDao
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.mlkit.vision.text.Text
 import ke.derrick.imagetotext.viewmodels.SharedViewModel
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import okhttp3.Call
 import okhttp3.Callback
 import okhttp3.MediaType
@@ -54,6 +63,7 @@ class HomeFragment : Fragment(), OnSaveClick {
         FragmentHomeBinding.inflate(layoutInflater)
     }
     private lateinit var viewModel: SharedViewModel
+    private lateinit var chatMessageDao: ChatMessageDao
     companion object{
         val REQUEST_GALLERY = 2
     }
@@ -73,6 +83,7 @@ class HomeFragment : Fragment(), OnSaveClick {
             Log.d("MyCheck", "${it.size}")
             processTextRecognitionResult(it)
         }
+        chatMessageDao = AppDatabase.getDatabase(requireContext()).chatMessageDao()
     }
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -134,6 +145,10 @@ class HomeFragment : Fragment(), OnSaveClick {
             binding.editQuestion.setText("")
         }
 
+        binding.btnCollection.setOnClickListener {
+            findNavController().navigate(R.id.action_homeFragment_to_collectionsFragment)
+        }
+
         return binding.root
     }
     @Deprecated("Deprecated in Java")
@@ -187,19 +202,53 @@ class HomeFragment : Fragment(), OnSaveClick {
     }
     @SuppressLint("NotifyDataSetChanged")
     fun addToChat(message: String?, sentBy: String?) {
+        Log.d("MywordsCount", "addToChat: ${viewModel.totalWords}")
         requireActivity().runOnUiThread(Runnable {
-            messageList!!.add(Message(message!!, sentBy.toString()))
-            messageAdapter?.notifyDataSetChanged()
-            binding.recyclerView!!.smoothScrollToPosition(messageAdapter!!.getItemCount())
+            if(viewModel.totalWords!! > 300){
+                viewModel.setWords()
+                try {
+                    val builder = AlertDialog.Builder(requireActivity())
+                    val inflater = LayoutInflater.from(requireActivity())
+                    val bind = WatchAdDialogBinding.inflate(inflater)
+                    builder.setView(bind.root)
+                    val dialog = builder.create()
+                    dialog.show()
+
+                    bind.btnCancelAd.setOnClickListener {
+                        dialog.dismiss()
+                    }
+
+                    bind.btnWatch.setOnClickListener {
+                        dialog.dismiss()
+                        SplashActivity.admobRewarded.showRewarded(requireActivity()){
+                            SplashActivity.admobRewarded.loadRewardedAd(requireContext(),
+                                SplashActivity.admobRewardedId)
+                            messageList!!.add(Message(message!!, sentBy.toString()))
+                            messageAdapter?.notifyDataSetChanged()
+                            binding.recyclerView.smoothScrollToPosition(messageAdapter!!.getItemCount())
+                        }
+                    }
+
+                } catch (e: Exception) {
+                    e.printStackTrace()
+                }
+            }
+            else{
+                messageList!!.add(Message(message!!, sentBy.toString()))
+                messageAdapter?.notifyDataSetChanged()
+                binding.recyclerView.smoothScrollToPosition(messageAdapter!!.getItemCount())
+            }
         })
     }
 
     fun addResponse(response: String?) {
+        viewModel.countWords(response!!)
         messageList!!.removeAt(messageList!!.size - 1)
         addToChat(response, Message.SENT_BY_BOT)
     }
 
     fun callAPI(question: String?) {
+        viewModel.countWords(question!!)
         binding.imgLogoBack.alpha = 0.99f
         activity?.runOnUiThread {
             binding.imgLogoBack.alpha = 0.89f
@@ -225,7 +274,7 @@ class HomeFragment : Fragment(), OnSaveClick {
 
         val request: Request = Request.Builder()
             .url("https://api.openai.com/v1/chat/completions")
-            .header("Authorization", "Bearer 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")
+            .header("Authorization", "Bearer ")
             .post(body)
             .build()
         client.newCall(request).enqueue(object : Callback {
@@ -261,7 +310,6 @@ class HomeFragment : Fragment(), OnSaveClick {
     override fun onItemClick(outputText: String) {
         val bottomSheetDialog = BottomSheetDialog(requireActivity())
 
-        // Inflate the layout for the bottom sheet dialog
         val bindingBottom = BottomSheetLayoutBinding.inflate(layoutInflater)
 
         bindingBottom.parentCopy.setOnClickListener {
@@ -286,6 +334,10 @@ class HomeFragment : Fragment(), OnSaveClick {
             bottomSheetDialog.dismiss()
         }
 
+        bindingBottom.parentSave.setOnClickListener {
+            saveChatMessage(ChatMessage(0, outputText, System.currentTimeMillis()))
+            bottomSheetDialog.dismiss()
+        }
         // Set the content view of the bottom sheet dialog to the inflated layout
         bottomSheetDialog.setContentView(bindingBottom.root)
         bottomSheetDialog.show()
@@ -308,5 +360,11 @@ class HomeFragment : Fragment(), OnSaveClick {
         }
         binding.editQuestion.setText(resultText)
     }
-
+    private fun saveChatMessage(chatMessage: ChatMessage) {
+        lifecycleScope.launch {
+            withContext(Dispatchers.IO) {
+                chatMessageDao.insertChatMessage(chatMessage)
+            }
+        }
+    }
 }

@@ -20,4 +20,14 @@
     <string name="txtFlash">Flash</string>
     <string name="txtDone">Done</string>
     <string name="txtCropRotate"><![CDATA[Crop & Rotate]]></string>
+    <string name="txtCollection">Collection</string>
+    <string name="txtSelectLang">Select Language</string>
+    <string name="txtWatchAd">Watch ad</string>
+    <string name="txtWatchAd1">You have to watch the reward ads to see the result.</string>
+    <string name="spanish">Spanish</string>
+    <string name="txtAsk">Ask me anything…</string>
+    <string name="txtCrop">Crop</string>
+    <string name="txtRotate">Rotate</string>
+    <string name="txtExitApp">Exit App</string>
+    <string name="txtAreSure">Are you sure you want to exit?</string>
 </resources>

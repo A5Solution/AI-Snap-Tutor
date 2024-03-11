@@ -1,13 +1,15 @@
-package com.example.aisnaptutor
+package com.example.aisnaptutor.adapters
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
 import android.widget.TextView
-import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
-import com.example.aisnaptutor.MessageAdapter.MyViewHolder
+import com.example.aisnaptutor.R
+import com.example.aisnaptutor.adapters.MessageAdapter.MyViewHolder
+import com.example.aisnaptutor.datamodels.Message
+import com.example.aisnaptutor.interfaces.OnSaveClick
 
 class MessageAdapter(var messageList: MutableList<Message>, var onSaveClick: OnSaveClick) : RecyclerView.Adapter<MyViewHolder>() {
     override fun onCreateViewHolder(

@@ -70,7 +70,7 @@
 
     <com.theartofdev.edmodo.cropper.CropImageView
         android:id="@+id/cropImageView"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="0dp"
         android:paddingBottom="10dp"
         app:cropScaleType="fitCenter"
@@ -205,7 +205,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
-            android:text="Crop"
+            android:text="@string/txtCrop"
             android:textColor="@color/appColor"
             app:layout_constraintEnd_toEndOf="@+id/btnCrop"
             app:layout_constraintStart_toStartOf="@+id/btnCrop"
@@ -229,7 +229,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:text="Rotate"
+            android:text="@string/txtRotate"
             android:textColor="@color/appColor"
             app:layout_constraintEnd_toEndOf="@+id/btnRotate"
             app:layout_constraintStart_toStartOf="@+id/btnRotate"

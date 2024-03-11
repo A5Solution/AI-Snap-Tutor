@@ -20,7 +20,10 @@ import androidx.core.view.GravityCompat
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
+import com.akexorcist.localizationactivity.core.LanguageSetting.setLanguage
+import com.akexorcist.localizationactivity.ui.LocalizationActivity
 import com.example.aisnaptutor.R
+import com.example.aisnaptutor.SharePref
 import com.example.aisnaptutor.databinding.ActivityMainBinding
 import com.example.aisnaptutor.databinding.ExitDialogLayoutBinding
 
@@ -34,6 +37,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
+
         val navHostFragment =
             supportFragmentManager.findFragmentById(R.id.fragmentContainerView) as NavHostFragment
         val navController = navHostFragment.navController
@@ -42,6 +46,10 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    override fun onResume() {
+//        setLanguage(SharePref.getString("language", "en"))
+        super.onResume()
+    }
     @SuppressLint("MissingSuperCall")
     override fun onBackPressed() {
         if (isHomeScreen) {

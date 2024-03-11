@@ -1,4 +1,4 @@
-package com.example.aisnaptutor
+package com.example.aisnaptutor.datamodels
 
 class Message(var message: String, var sentBy: String) {
 

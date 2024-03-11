@@ -1,5 +1,5 @@
 package com.example.aisnaptutor
 
-interface OnSaveClick {
+interface OnCollectionItemClick {
     fun onItemClick(text: String)
 }

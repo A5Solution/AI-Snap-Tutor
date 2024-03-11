@@ -1,4 +1,4 @@
-package com.example.aisnaptutor
+package com.example.aisnaptutor.fragments
 
 import android.content.Context
 import android.content.Intent
@@ -9,6 +9,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
+import com.akexorcist.localizationactivity.ui.LocalizationActivity
+import com.example.aisnaptutor.R
 import com.example.aisnaptutor.databinding.FragmentNavigationBinding
 
 
@@ -24,7 +27,7 @@ class NavigationFragment : Fragment() {
 
         }
         binding.parentAppLanguage.setOnClickListener {
-
+            findNavController().navigate(R.id.action_navigationFragment_to_languagesFragment)
         }
         binding.parentShareApp.setOnClickListener {
             shareApp(requireContext())
@@ -35,7 +38,7 @@ class NavigationFragment : Fragment() {
         binding.parentPrivacy.setOnClickListener {
             openPrivacyPolicy(
                         requireContext(),
-                        "https://play.google.com/store/apps/developer?id=Sparx+Developer"
+                        "https://sites.google.com/view/aisnaptutor/home"
                     )
         }
         binding.parenMoreApps.setOnClickListener {

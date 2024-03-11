@@ -39,6 +39,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.aisnaptutor.R
+import com.example.aisnaptutor.activities.SplashActivity
 import com.example.aisnaptutor.databinding.FragmentCameraBinding
 import com.google.mlkit.vision.common.InputImage
 import com.google.mlkit.vision.text.Text
@@ -109,16 +110,17 @@ class CameraFragment : Fragment() {
                 val cropImageView = binding.cropImageView
                 val cropped: Bitmap? = cropImageView.getCroppedImage()
                 val image = InputImage.fromBitmap(cropped!!, 0)
-                runTextRecognition(image)
+                runTextRecognition(image){
+                        findNavController().navigate(R.id.action_cameraFragment_to_homeFragment)
+                }
             } else {
                 val cropImageView = binding.cropImageView
                 val cropped: Bitmap? = cropImageView.getCroppedImage()
                 val image = InputImage.fromBitmap(cropped!!, 0)
-                runTextRecognition(image)
+                runTextRecognition(image){
+                        findNavController().navigate(R.id.action_cameraFragment_to_homeFragment)
+                }
             }
-            Handler(Looper.getMainLooper()).postDelayed({
-                findNavController().navigate(R.id.action_cameraFragment_to_homeFragment)
-            }, 1000)
         }
 
         binding.btnGallery1.setOnClickListener {
@@ -234,13 +236,15 @@ class CameraFragment : Fragment() {
         }, ContextCompat.getMainExecutor(requireContext()))
     }
 
-    private fun runTextRecognition(inputImage: InputImage) {
+    private fun runTextRecognition(inputImage: InputImage, callBack: () -> Unit) {
         val recognizer = TextRecognition.getClient(TextRecognizerOptions.DEFAULT_OPTIONS)
         recognizer.process(inputImage)
             .addOnSuccessListener { texts ->
                 processTextRecognitionResult(texts)
+                callBack.invoke()
             }
             .addOnFailureListener { exception ->
+                callBack.invoke()
                 // Handle failure
             }
     }

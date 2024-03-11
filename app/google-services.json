@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "121129126368",
+    "project_id": "ai-snap-tutor-4a424",
+    "storage_bucket": "ai-snap-tutor-4a424.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:121129126368:android:4226c89a9a14704582c385",
+        "android_client_info": {
+          "package_name": "sprxtech.photosolve.homework.questionsolver.picanswer.scan.ai.tutorapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyALOEkHjN1jlbOsL73OHZrNLRpBjlhDq3I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

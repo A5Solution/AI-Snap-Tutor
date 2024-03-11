@@ -84,7 +84,7 @@
             android:background="@drawable/bg_edit_chat"
             android:ems="10"
             android:fontFamily="@font/poppins"
-            android:hint="Ask me anything..."
+            android:hint="@string/txtAsk"
             android:inputType="text"
             android:paddingStart="5dp"
             app:layout_constraintBottom_toBottomOf="parent"

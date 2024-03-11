@@ -16,6 +16,9 @@
         <action
             android:id="@+id/action_homeFragment_to_navigationFragment"
             app:destination="@id/navigationFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_collectionsFragment"
+            app:destination="@id/collectionsFragment" />
     </fragment>
     <fragment
         android:id="@+id/cameraFragment"
@@ -30,12 +33,16 @@
     </fragment>
     <fragment
         android:id="@+id/collectionsFragment"
-        android:name="com.example.aisnaptutor.CollectionsFragment"
+        android:name="com.example.aisnaptutor.fragments.CollectionsFragment"
         android:label="fragment_collections"
-        tools:layout="@layout/fragment_collections" />
+        tools:layout="@layout/fragment_collections" >
+        <action
+            android:id="@+id/action_collectionsFragment_to_collectionDetailFragment"
+            app:destination="@id/collectionDetailFragment" />
+    </fragment>
     <fragment
         android:id="@+id/navigationFragment"
-        android:name="com.example.aisnaptutor.NavigationFragment"
+        android:name="com.example.aisnaptutor.fragments.NavigationFragment"
         android:label="fragment_navigation"
         tools:layout="@layout/fragment_navigation" >
         <action
@@ -43,5 +50,18 @@
             app:destination="@id/homeFragment"
             app:popUpTo="@id/navigationFragment"
             app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_navigationFragment_to_languagesFragment"
+            app:destination="@id/languagesFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/collectionDetailFragment"
+        android:name="com.example.aisnaptutor.CollectionDetailFragment"
+        android:label="fragment_collection_detail"
+        tools:layout="@layout/fragment_collection_detail" />
+    <fragment
+        android:id="@+id/languagesFragment"
+        android:name="com.example.aisnaptutor.fragments.LanguagesFragment"
+        android:label="fragment_languages"
+        tools:layout="@layout/fragment_languages" />
 </navigation>
